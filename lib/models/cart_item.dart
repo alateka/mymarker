@@ -1,25 +1,19 @@
 class CartItem {
-  String description = "";
-  String hour = "";
+  String name = "";
 
-  CartItem(this.description, this.hour);
+  CartItem(this.name);
 
-  setHour(String hour) {
-    this.hour = hour;
-  }
-  setDescription(String description) {
-    this.description = description;
+  setHour(String name) {
+    this.name = name;
   }
 
   Map toJson() => {
-    'description': description,
-    'hour': hour,
+    'description': name
   };
 
   factory CartItem.fromJson(Map<String, dynamic> json) {
     return CartItem(
-      json['description'] as String,
-      json['hour'] as String
+      json['name'] as String
     );
   }
 }

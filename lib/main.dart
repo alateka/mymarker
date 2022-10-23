@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import './models/cart_item.dart';
 
-import 'views/start.dart';
-import 'tools/market_storage.dart';
+import 'package:mymarker/views/cart_page.dart';
 
 void main() {
-  runApp(MyMarker());
+  runApp(const MyMarker());
 }
 
 class MyMarker extends StatelessWidget {
-  MyMarker({super.key});
-
-
-  final List<CartItem> cart = [];
-  final MarketStorage storage = MarketStorage();
+  const MyMarker({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +18,7 @@ class MyMarker extends StatelessWidget {
         scaffoldBackgroundColor: Colors.green
       ),
       // darkTheme: ThemeData.dark(),
-      home: Start(storage: storage, cart: cart)
+      home: const CartPage()
     );
   }
 }

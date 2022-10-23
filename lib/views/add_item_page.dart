@@ -14,9 +14,7 @@ class AddItemPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final formKey = GlobalKey<FormState>();
-
-    final descriptionField = TextEditingController();
-    final hourField = TextEditingController();
+    final nameField = TextEditingController();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -29,26 +27,18 @@ class AddItemPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,  
           children: <Widget>[  
             TextFormField(
-              controller: descriptionField,
+              controller: nameField,
               decoration: const InputDecoration(  
                 icon: Icon(Icons.menu_book),  
-                hintText: 'Introduce una descripción',  
-                labelText: 'Descripción',  
+                hintText: 'Escribe el producto (Ej: Leche, Huevos, etc)',  
+                labelText: '¿Que quieres comprar?',  
               ),  
-            ),  
-            TextFormField(
-              controller: hourField,
-              decoration: const InputDecoration(  
-                icon: Icon(Icons.alarm),  
-                hintText: 'Introduce el número de horas',  
-                labelText: 'Horas',  
-              ),  
-            ), 
+            ),   
             Container(
               padding: const EdgeInsets.only(left: 150.0, top: 40.0),  
               child: ElevatedButton(  
                 onPressed: () {
-                  _writeLog(descriptionField.text, hourField.text, cart);
+                  _writeLog(nameField.text, cart);
                   Navigator.pop(context);
                 },
                 child: const Text('Añadir'),
@@ -59,8 +49,8 @@ class AddItemPage extends StatelessWidget {
       ),
     );
   }
-  Future<File> _writeLog(String description, String hour, List<CartItem> cart) async {
-    cart.add(CartItem(description, hour));
+  Future<File> _writeLog(String name, List<CartItem> cart) async {
+    cart.add(CartItem(name));
     return storage.rewriteFile(cart);
   }
 }
