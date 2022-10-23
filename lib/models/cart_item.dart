@@ -3,12 +3,12 @@ class CartItem {
 
   CartItem(this.name);
 
-  setHour(String name) {
+  setName(String name) {
     this.name = name;
   }
 
   Map toJson() => {
-    'description': name
+    'name': name
   };
 
   factory CartItem.fromJson(Map<String, dynamic> json) {

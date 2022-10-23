@@ -21,32 +21,40 @@ class AddItemPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Añadir hora"),
       ),
-      body: Form(  
-        key: formKey,  
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,  
-          children: <Widget>[  
-            TextFormField(
-              controller: nameField,
-              decoration: const InputDecoration(  
-                icon: Icon(Icons.menu_book),  
-                hintText: 'Escribe el producto (Ej: Leche, Huevos, etc)',  
-                labelText: '¿Que quieres comprar?',  
-              ),  
-            ),   
-            Container(
-              padding: const EdgeInsets.only(left: 150.0, top: 40.0),  
-              child: ElevatedButton(  
-                onPressed: () {
-                  _writeLog(nameField.text, cart);
-                  Navigator.pop(context);
-                },
-                child: const Text('Añadir'),
+      body: Container(
+        padding: const EdgeInsets.all(13.0),
+        child: Form(  
+          key: formKey,  
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,  
+            children: <Widget>[  
+              TextFormField(
+                controller: nameField,
+                decoration: const InputDecoration(  
+                  icon: Icon(Icons.fastfood),  
+                  hintText: 'Escribe el producto (Ej: Leche, Huevos, etc)',  
+                  labelText: '¿Que quieres comprar?',  
+                ),  
               )
-            ), 
-          ],
-        ),  
+            ],
+          ),  
+        ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 55, 145, 43),
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(
+            width: 5,
+            color: Colors.green,
+          ),
+          borderRadius: BorderRadius.circular(100)
+        ),
+        onPressed: () {
+          _writeLog(nameField.text, cart);
+          Navigator.pop(context);
+        },
+        child: const Icon(Icons.add),
+      )
     );
   }
   Future<File> _writeLog(String name, List<CartItem> cart) async {

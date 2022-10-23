@@ -91,10 +91,10 @@ class _CartPageState extends State<CartPage> {
                   margin: const EdgeInsets.all(5.0),
                   alignment: Alignment.center,
                   child: ListTile(
-                    leading: const Icon(Icons.alarm, color: Colors.white,),
+                    leading: const Icon(Icons.restaurant, color: Colors.white),
                     title: Text(cart[index].name, style: const TextStyle(color: Colors.white)),
                     trailing: PopupMenuButton<int>(
-                      icon: const Icon(Icons.menu),
+                      icon: const Icon(Icons.menu, color: Colors.white),
                       itemBuilder: (context) {
                         return [
                           const PopupMenuItem(
@@ -119,11 +119,13 @@ class _CartPageState extends State<CartPage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(
+        shape: const RoundedRectangleBorder(
+          side: BorderSide(
             width: 3,
-            color: Color.fromARGB(255, 189, 255, 169)),
-            borderRadius: BorderRadius.circular(100)),
+            color: Color.fromARGB(255, 55, 145, 43),
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(15.0))
+        ),
         onPressed: () => Navigator.push(
           context, 
           MaterialPageRoute(
