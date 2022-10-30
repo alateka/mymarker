@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-
+import '../models/FoodIcons.dart';
 import '../models/cart_item.dart';
 import '../tools/market_storage.dart';
 import 'add_item_page.dart';
@@ -91,7 +91,7 @@ class _CartPageState extends State<CartPage> {
                   margin: const EdgeInsets.all(5.0),
                   alignment: Alignment.center,
                   child: ListTile(
-                    leading: const Icon(Icons.restaurant, color: Colors.white),
+                    leading: autoIcon(cart[index].name),
                     title: Text(cart[index].name, style: const TextStyle(color: Colors.white)),
                     trailing: PopupMenuButton<int>(
                       icon: const Icon(Icons.menu, color: Colors.white),
@@ -118,13 +118,13 @@ class _CartPageState extends State<CartPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
-        shape: const RoundedRectangleBorder(
-          side: BorderSide(
-            width: 3,
-            color: Color.fromARGB(255, 55, 145, 43),
+        backgroundColor: const Color.fromARGB(255, 55, 145, 43),
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(
+            width: 5,
+            color: Colors.green,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(15.0))
+          borderRadius: BorderRadius.circular(100)
         ),
         onPressed: () => Navigator.push(
           context, 
@@ -134,12 +134,19 @@ class _CartPageState extends State<CartPage> {
               cart: cart)
             ))
           .then((value){setState(() {});}),
-        child: const Icon(Icons.add),
-      ), 
+        child: const Icon(Icons.add)
+      )
     );
   }
   
   Future<File> writeChanges(MarketStorage storage, List<CartItem> cart) async {
     return storage.rewriteFile(cart);
+  }
+
+  autoIcon(String name) {
+    if (name.contains('Patata')) {
+      return Icon(FoodIcons.minecraftLauncher, color: Colors.white);
+    }
+    return const Icon(Icons.restaurant, color: Colors.white);
   }
 }
