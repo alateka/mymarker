@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import '../models/FoodIcons.dart';
+import 'package:flutter_svg/svg.dart';
+
 import '../models/cart_item.dart';
 import '../tools/market_storage.dart';
 import 'add_item_page.dart';
@@ -91,7 +91,11 @@ class _CartPageState extends State<CartPage> {
                   margin: const EdgeInsets.all(5.0),
                   alignment: Alignment.center,
                   child: ListTile(
-                    leading: autoIcon(cart[index].name),
+                    leading: SvgPicture.asset(
+                      autoIcon(cart[index].name),
+                      width: 39,
+                      height: 39,
+                    ),
                     title: Text(cart[index].name, style: const TextStyle(color: Colors.white)),
                     trailing: PopupMenuButton<int>(
                       icon: const Icon(Icons.menu, color: Colors.white),
@@ -110,7 +114,7 @@ class _CartPageState extends State<CartPage> {
                         }
                       },
                     )
-                  ),
+                  )
                 )
               ),
             );
@@ -138,15 +142,21 @@ class _CartPageState extends State<CartPage> {
       )
     );
   }
-  
-  Future<File> writeChanges(MarketStorage storage, List<CartItem> cart) async {
-    return storage.rewriteFile(cart);
+
+  autoIcon(name) {
+    if (name.contains('Patata')) {
+      return 'assets/food_icons/potato.svg';
+    }
+    if (name.contains('Tomate')) {
+      return 'assets/food_icons/tomato.svg';
+    }
+    if (name.contains('Pizza')) {
+      return 'assets/food_icons/pizza.svg';
+    }
+    return 'assets/food_icons/generic.svg';
   }
 
-  autoIcon(String name) {
-    if (name.contains('Patata')) {
-      return Icon(FoodIcons.minecraftLauncher, color: Colors.white);
-    }
-    return const Icon(Icons.restaurant, color: Colors.white);
+  Future<File> writeChanges(MarketStorage storage, List<CartItem> cart) async {
+    return storage.rewriteFile(cart);
   }
 }
