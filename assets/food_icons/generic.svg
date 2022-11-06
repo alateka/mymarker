@@ -1,37 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    width="128"
    height="128"
    style="enable-background:new 0 0 128 128;"
    version="1.1"
    id="svg86"
-   sodipodi:docname="generic.svg"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview14"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:showpageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#505050"
-     showgrid="false"
-     inkscape:zoom="6.4140625"
-     inkscape:cx="85.671133"
-     inkscape:cy="80.448234"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg86" />
   <defs
-     id="defs90" />
+     id="defs15" />
   <linearGradient
      id="SVGID_3_"
      gradientTransform="matrix(-0.9803 -0.1974 -0.1974 0.9803 117.4428 7.9702)"
@@ -85,14 +61,5 @@
   <path
      style="fill:#5db552;fill-opacity:1;stroke:#5db552;stroke-width:1.47816"
      id="path3273"
-     sodipodi:type="arc"
-     sodipodi:cx="64"
-     sodipodi:cy="64"
-     sodipodi:rx="18.128365"
-     sodipodi:ry="17.651846"
-     sodipodi:start="0"
-     sodipodi:end="6.281858"
-     sodipodi:arc-type="chord"
-     d="M 82.128365,64 A 18.128365,17.651846 0 0 1 64.006015,81.651845 18.128365,17.651846 0 0 1 45.871639,64.011715 18.128365,17.651846 0 0 1 63.981954,46.348163 18.128365,17.651846 0 0 1 82.128349,63.976571 Z"
-     sodipodi:open="true" />
+     d="M 82.128365,64 A 18.128365,17.651846 0 0 1 64.006015,81.651845 18.128365,17.651846 0 0 1 45.871639,64.011715 18.128365,17.651846 0 0 1 63.981954,46.348163 18.128365,17.651846 0 0 1 82.128349,63.976571 Z" />
 </svg>

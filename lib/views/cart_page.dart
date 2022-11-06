@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import '../models/cart_item.dart';
 import '../tools/market_storage.dart';
 import 'add_item_page.dart';
+import '../tools/auto_icon.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -141,19 +142,6 @@ class _CartPageState extends State<CartPage> {
         child: const Icon(Icons.add)
       )
     );
-  }
-
-  autoIcon(name) {
-    if (name.contains('Patata')) {
-      return 'assets/food_icons/potato.svg';
-    }
-    if (name.contains('Tomate')) {
-      return 'assets/food_icons/tomato.svg';
-    }
-    if (name.contains('Pizza')) {
-      return 'assets/food_icons/pizza.svg';
-    }
-    return 'assets/food_icons/generic.svg';
   }
 
   Future<File> writeChanges(MarketStorage storage, List<CartItem> cart) async {
