@@ -21,7 +21,6 @@ class MarketStorage {
       final file = await _localFile;
       final String fileData = await file.readAsString();
       return fileData;
-
     } catch (e) {
       return "0";
     }

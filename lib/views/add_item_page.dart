@@ -14,7 +14,6 @@ class AddItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -23,15 +22,13 @@ class AddItemPage extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(13.0),
         child: DropdownSearch<String>(
-          popupProps: const PopupProps.menu(
-              showSearchBox: true
-          ),
+          popupProps: const PopupProps.menu(showSearchBox: true),
           items: food,
           dropdownDecoratorProps: const DropDownDecoratorProps(
-              dropdownSearchDecoration: InputDecoration(
-                  labelText: '¿Que quieres comprar?',
-                  hintText: 'Escribe el producto (Ej: Leche, Huevos, etc)',
-              ),
+            dropdownSearchDecoration: InputDecoration(
+              labelText: '¿Que quieres comprar?',
+              hintText: 'Escribe el producto (Ej: Leche, Huevos, etc)',
+            ),
           ),
           onChanged: (value) {
             _writeLog(value!, cart);
@@ -41,6 +38,7 @@ class AddItemPage extends StatelessWidget {
       ),
     );
   }
+
   Future<File> _writeLog(String name, List<CartItem> cart) async {
     cart.add(CartItem(name));
     return storage.rewriteFile(cart);

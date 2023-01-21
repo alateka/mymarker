@@ -7,13 +7,9 @@ class CartItem {
     this.name = name;
   }
 
-  Map toJson() => {
-    'name': name
-  };
+  Map toJson() => {'name': name};
 
   factory CartItem.fromJson(Map<String, dynamic> json) {
-    return CartItem(
-      json['name'] as String
-    );
+    return CartItem(json['name'] as String);
   }
 }
