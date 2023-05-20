@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:mymarker/views/cart_page.dart';
+import 'package:mymarker/views/tabs.dart';
 
 void main() {
   runApp(const MyMarker());
@@ -14,10 +14,11 @@ class MyMarker extends StatelessWidget {
     return MaterialApp(
         title: 'MyMarker',
         theme: ThemeData(
+          fontFamily: 'Nunito',
           primarySwatch: Colors.green,
           scaffoldBackgroundColor: Colors.white,
         ),
         // darkTheme: ThemeData.dark(),
-        home: const CartPage());
+        home: const Tabs());
   }
 }

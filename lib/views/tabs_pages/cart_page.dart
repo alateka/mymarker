@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../models/cart_item.dart';
-import '../tools/market_storage.dart';
-import 'add_item_page.dart';
-import '../tools/auto_icon.dart';
+import '../../models/cart_item.dart';
+import '../../tools/market_storage.dart';
+import '../add_item_page.dart';
+import '../../tools/auto_icon.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -41,23 +41,6 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("MyMarker"),
-          actions: [
-            PopupMenuButton(itemBuilder: (context) {
-              return [
-                const PopupMenuItem<int>(
-                  value: 0,
-                  child: Text("Sobre la APP"),
-                ),
-              ];
-            }, onSelected: (value) {
-              if (value == 0) {
-                // About
-              }
-            })
-          ],
-        ),
         body: ListView.builder(
             itemCount: cart.length,
             itemBuilder: (BuildContext context, int index) {

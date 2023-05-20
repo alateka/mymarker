@@ -30,6 +30,10 @@ class AddItemPage extends StatelessWidget {
               hintText: 'Escribe el producto (Ej: Leche, Huevos, etc)',
             ),
           ),
+          onSaved: (value) {
+            _writeLog(value!, cart);
+            Navigator.pop(context);
+          },
           onChanged: (value) {
             _writeLog(value!, cart);
             Navigator.pop(context);
