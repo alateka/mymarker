@@ -12,13 +12,14 @@ class MyMarker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'MyMarker',
-        theme: ThemeData(
-          fontFamily: 'Nunito',
-          primarySwatch: Colors.green,
-          scaffoldBackgroundColor: Colors.white,
-        ),
-        // darkTheme: ThemeData.dark(),
-        home: const Tabs());
+      title: 'MyMarker',
+      theme: ThemeData(
+        fontFamily: 'Nunito',
+        primarySwatch: Colors.green,
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      // darkTheme: ThemeData.dark(),
+      home: const Tabs(),
+    );
   }
 }

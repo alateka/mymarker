@@ -13,7 +13,7 @@ class MarketStorage {
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    return File('$path/papatruck.json');
+    return File('$path/mymarker.json');
   }
 
   Future<String> readFile() async {
@@ -22,18 +22,18 @@ class MarketStorage {
       final String fileData = await file.readAsString();
       return fileData;
     } catch (e) {
-      return "0";
+      return "";
     }
   }
 
   Future<File> rewriteFile(List<CartItem> cart) async {
-    createPapaFile();
+    createListFile();
     final file = await _localFile;
     String convertedJSON = jsonEncode(cart);
     return file.writeAsString(convertedJSON);
   }
 
-  Future<File> createPapaFile() async {
+  Future<File> createListFile() async {
     final file = await _localFile;
     return file.writeAsString("");
   }

@@ -14,20 +14,22 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        initialIndex: 0,
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text("MyMarker"),
-            actions: [
-              PopupMenuButton(itemBuilder: (context) {
+      initialIndex: 0,
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("MyMarker"),
+          actions: [
+            PopupMenuButton(
+              itemBuilder: (context) {
                 return [
                   const PopupMenuItem<int>(
                     value: 0,
                     child: Text("Sobre la APP"),
                   ),
                 ];
-              }, onSelected: (value) {
+              },
+              onSelected: (value) {
                 if (value == 0) {
                   Navigator.push(
                     context,
@@ -36,21 +38,25 @@ class _TabsState extends State<Tabs> {
                     ),
                   );
                 }
-              })
-            ],
-            bottom: const TabBar(
-              labelColor: Colors.white,
-              unselectedLabelColor: Colors.white54,
-              tabs: [
-                Tab(icon: Icon(Icons.shopping_cart_rounded), text: "Carrito"),
-                Tab(icon: Icon(Icons.money), text: "Importe")
-              ],
+              },
             ),
+          ],
+          bottom: const TabBar(
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white54,
+            tabs: [
+              Tab(icon: Icon(Icons.shopping_cart_rounded), text: "Carrito"),
+              Tab(icon: Icon(Icons.calculate_rounded), text: "Calculadora")
+            ],
           ),
-          body: const TabBarView(children: [
+        ),
+        body: const TabBarView(
+          children: [
             CartPage(),
             AmountPage(),
-          ]),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }

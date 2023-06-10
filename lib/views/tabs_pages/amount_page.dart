@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_simple_calculator/flutter_simple_calculator.dart';
+
 class AmountPage extends StatelessWidget {
   const AmountPage({super.key});
 
@@ -8,7 +10,7 @@ class AmountPage extends StatelessWidget {
     return Opacity(
       opacity: 0.9,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(33, 33, 33, 133),
+        padding: const EdgeInsets.all(15.0),
         child: Container(
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 235, 235, 235),
@@ -22,12 +24,11 @@ class AmountPage extends StatelessWidget {
           ),
           child: Container(
             margin: const EdgeInsets.all(15),
-            child: const Text(
-              'Importe total',
-              style: TextStyle(
-                letterSpacing: 0.5,
-                color: Colors.black,
-                fontSize: 17.0,
+            child: const SimpleCalculator(
+              hideExpression: true,
+              theme: CalculatorThemeData(
+                displayColor: Colors.white,
+                displayStyle: TextStyle(fontSize: 80, color: Colors.black),
               ),
             ),
           ),

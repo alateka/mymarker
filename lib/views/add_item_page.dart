@@ -1,16 +1,16 @@
 import 'dart:io';
 
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import '../tools/market_storage.dart';
 import '../models/cart_item.dart';
-import '../models/food_list.dart';
 
 class AddItemPage extends StatelessWidget {
-  const AddItemPage({super.key, required this.storage, required this.cart});
+  AddItemPage({super.key, required this.storage, required this.cart});
 
   final MarketStorage storage;
   final List<CartItem> cart;
+  final formKey = GlobalKey<FormState>();
+  final itemNameField = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +19,44 @@ class AddItemPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Añade un alimento a la lista'),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(13.0),
-        child: DropdownSearch<String>(
-          popupProps: const PopupProps.menu(showSearchBox: true),
-          items: food,
-          dropdownDecoratorProps: const DropDownDecoratorProps(
-            dropdownSearchDecoration: InputDecoration(
-              labelText: '¿Que quieres comprar?',
-              hintText: 'Escribe el producto (Ej: Leche, Huevos, etc)',
+      body: Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsetsDirectional.all(15.0),
+              child: TextFormField(
+                onFieldSubmitted: (value) {
+                  _writeLog(itemNameField.text, cart);
+                  Navigator.pop(context);
+                },
+                controller: itemNameField,
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.shopping_cart),
+                  hintText: 'Ej: Leche, Huevos, Jabón, etc',
+                  labelText: 'Nombre del producto',
+                ),
+              ),
             ),
-          ),
-          onSaved: (value) {
-            _writeLog(value!, cart);
-            Navigator.pop(context);
-          },
-          onChanged: (value) {
-            _writeLog(value!, cart);
-            Navigator.pop(context);
-          },
+            Container(
+              padding: const EdgeInsetsDirectional.all(15.0),
+              child: FloatingActionButton(
+                backgroundColor: const Color.fromARGB(255, 55, 145, 43),
+                shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                      width: 5,
+                      color: Colors.green,
+                    ),
+                    borderRadius: BorderRadius.circular(100)),
+                onPressed: () {
+                  _writeLog(itemNameField.text, cart);
+                  Navigator.pop(context);
+                },
+                child: const Icon(Icons.add),
+              ),
+            ),
+          ],
         ),
       ),
     );
